@@ -1,11 +1,13 @@
 import streamlit as st
 import yaml
+from datetime import datetime
 
 from widgets.authentication.login_widget import authenticator, config
 from widgets.authentication.reset_password import reset_password
 from widgets.authentication.user_registration import user_registration
 from widgets.initialize import initialize_session_status
-from widgets.data import insert_wine, load_data
+from widgets.data.data import insert_wine, load_data
+from widgets.data.filtering import filter_dataframe
 
 
 initialize_session_status()
@@ -38,8 +40,29 @@ if authentication_status:
             insert_wine(data)
 
     if st.checkbox("Show wine data"):
+        if st.toggle("Filter wine data"):
+            data = filter_dataframe(data)
+
         st.subheader("Wine data")
-        st.dataframe(data)
+        column_config = {
+            "price": st.column_config.NumberColumn(
+                "price",
+                help="The price of the wine in RON",
+                min_value=0,
+                max_value=1000,
+                step=1,
+                format="RON %d",
+            ),
+            "year": st.column_config.NumberColumn(
+                "year",
+                help="The year of the wine",
+                min_value=1950,
+                max_value=datetime.now().year,
+                step=1,
+                format="%d",
+            ),
+        }
+        st.dataframe(data, column_config=column_config)
     ############################################################
 
 elif authentication_status is False:

@@ -26,13 +26,12 @@ def lowercase(x):
 
 def process_data(data: pd.DataFrame) -> pd.DataFrame:
     data["grape_variety"] = data["grape_variety"].apply(lambda x: literal_eval(x))
-    data["year"] = data["year"].astype("string")
     data.rename(lowercase, axis="columns", inplace=True)
     return data
 
 
 def load_data() -> pd.DataFrame:
-    data = pd.read_csv(DATA_PATH, dtype={"year": str})
+    data = pd.read_csv(DATA_PATH)
     data = process_data(data)
     return data
 
@@ -75,8 +74,6 @@ def insert_wine(data: pd.DataFrame) -> None:
         wine_type=wine_type,
         sparkling=sparkling,
     )
-
-    st.write(new_wine.__dict__)
 
     if st.button("Add wine"):
         data = insert_new_row(new_wine, data)

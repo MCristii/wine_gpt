@@ -28,6 +28,7 @@ White,Italy,Scaia Garganega,['Chardonnay'],2023,50,Dry,False
 White,Italy,Montemajor,['Greco di Tufo'],,45,Dry,False
 White,Italy,Canti,['Pinot Grigio'],,30,Dry,False
 White,Italy,Tinazzi Duca Delle Corone Puglia,['Fiano'],2022,40,Dry,False
+White,Italy,Tinazzi CA de Rocchi Soave,"['Garganega', 'Trebbiano di Soave']",2022,40,Dry,False
 White,Romania,Murfatlar Sur Mer,['Chardonnay'],,50,Dry,False
 White,Romania,1251 Blanc de Noir,['Pinot Noir'],,42,Dry,False
 White,Romania,Sceptrus,['Fume'],,37,Dry,False
@@ -73,7 +74,7 @@ Rose,Moldova,Gitana Portret,['Cabernet Sauvignon'],2022,30,Dry,False
 Rose,Moldova,Purcari Vinohora,"['Pinot Grigio', 'Fetească neagră']",2023,42,Dry,False
 Rose,Moldova,Cricova,['Rara Neagra'],,35,Dry,False
 Rose,New Zeeland,The New Land,['Sauvignon Blush'],2021,20,Dry,False
-Red,Italy,Banfi Chianti,['Sangiovese'],,40-55,Dry,False
+Red,Italy,Banfi Chianti,['Sangiovese'],,45,Dry,False
 Red,Italy,Montepulciano Toscana,[],2017,35,Dry,False
 Red,Italy,Crifo Puglia,['Nero di Troia'],2021,20,Semi-Dry,False
 Red,Italy,Cecchi di Toscana,['Sangiovese'],2022,30,Dry,False
