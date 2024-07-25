@@ -15,10 +15,12 @@ st.write(
         # Wine GPT app
     """
 )
-if st.button("Register"):
-    user_registration()
 
 name, authentication_status, username = authenticator.login(max_login_attempts=10)
+
+if not authentication_status:
+    if st.button("Register"):
+        user_registration()
 
 if authentication_status:
     with st.sidebar:
