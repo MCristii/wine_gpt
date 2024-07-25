@@ -1,0 +1,20 @@
+cookie:
+  expiry_days: 30
+  key: allaboutwine
+  name: wine
+credentials:
+  usernames:
+    user1:
+      email: user1.name@gmail.com
+      failed_login_attempts: 0
+      logged_in: false
+      name: User1 Name
+      password: abc
+    user2:
+      email: user2.name@gmail.com
+      failed_login_attempts: 0
+      logged_in: true
+      name: User2 Name
+      password: def
+pre-authorized:
+  emails: null
