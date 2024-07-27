@@ -1,0 +1,81 @@
+color,country,wine_name,grape_variety,year,price,type,sparkling
+White,Greece,Nico Lazaridi Queen of Hearts,[],2021,35,Dry,False
+White,Italy,Tenuta Ulisse,['Pecorino'],,40,Dry,False
+White,Italy,Tenuta Ulisse,['Cococciola'],,40,Dry,False
+White,Italy,Tenuta Ulisse,['Passerina'],,40,Dry,False
+White,Italy,San Martino,['Pinot Grigio'],,30,Dry,False
+White,Italy,Grande Alberone,['Bianco'],2022,33,Dry,False
+White,Italy,San Martino Aromatico Friuli,['Traminer'],,27,Dry,False
+White,Italy,Mezzacorona Castel Firmian,['Chardonnay'],2022,40,Dry,False
+White,Italy,Veseva,['Falanghina'],2022,32,Dry,False
+White,Italy,Feudi del Luca Puglia,['Fiano'],2022,35,Dry,False
+White,Italy,Corte Allodola,['Lugana'],2022,33,Dry,False
+White,Italy,Astrale,['Bianco'],,30,Dry,False
+White,Italy,Ferlaia,['Bianco'],2021,45,Dry,False
+White,Italy,Villa Antinori Toscana,[],2022,55,Dry,False
+White,Italy,La Musina Sartori di Verona,['Lugana'],2022,35,Dry,False
+White,Italy,Gavi Fontana Fredda Cortese,[],2022,55,Dry,False
+White,Italy,Zite Terra di Chieti,['Pecorino'],2022,30,Dry,False
+White,Italy,Vesuvio Lacryma Christi,['Caprettone'],2022,47.50,Dry,False
+White,Italy,Fantinel,['Pinot Grigio'],2022,30,Dry,False
+White,Italy,Santa Margherita Valdadige,['Pinot Grigio'],2023,60,Dry,False
+White,Italy,Ferro 13 Hashtag,['Sauvignon'],2019,33,Dry,False
+White,Italy,Ferro 13 The Lady,['Pinot Grigio'],,40,Dry,False
+White,Italy,Tenuta Ulisse Dieci Vendemmie,['Pecorino'],,99,Dry,False
+White,Italy,Bottega Venezie,['Pinot Grigio'],2023,60,Dry,False
+White,Italy,Danzante,['Pinot Grigio'],2015,30,Dry,False
+White,Italy,Scaia Garganega,['Chardonnay'],2023,50,Dry,False
+White,Italy,Montemajor,['Greco di Tufo'],,45,Dry,False
+White,Italy,Canti,['Pinot Grigio'],,30,Dry,False
+White,Italy,Tinazzi Duca Delle Corone Puglia,['Fiano'],2022,40,Dry,False
+White,Italy,Tinazzi CA de Rocchi Soave,"['Garganega', 'Trebbiano di Soave']",2022,40,Dry,False
+White,Romania,Murfatlar Sur Mer,['Chardonnay'],,50,Dry,False
+White,Romania,1251 Blanc de Noir,['Pinot Noir'],,42,Dry,False
+White,Romania,Sceptrus,['Fume'],,37,Dry,False
+White,Romania,Jidvei Ana,['Chardonnay'],2022,60,Dry,False
+White,Romania,Sâmburești,['Chardonnay'],2022,25,Dry,False
+White,Romania,Domeniile Davidescu,"['Viorica', 'Pinot Grigio']",2022,33,Dry,False
+White,Romania,Domeniile Davidescu,"['Sauvignon Blanc', 'Chardonnay']",2022,33,Dry,False
+White,Romania,Corcova,['Sauvignon Blanc'],2023,30,Dry,False
+White,Romania,Aurelia Vișinescu Promessa,['Chardonnay'],2022,33,Dry,False
+White,Romania,Gîrboiu Tectonic,"['Sauvignon Blanc', 'Chardonnay Fumé']",2022,25,Dry,False
+White,Romania,Aurelia Vișinescu,['Fumé'],2020,50,Dry,False
+White,Romania,Prince Matei,"['Fetească regală', 'Fetească neagră']",2021,35,Dry,False
+White,Romania,Alai,['Chardonnay'],2022,27,Semi-Dry,False
+White,Romania,Tohani Principele Radu,['Chardonnay'],2022,55,Dry,False
+White,Moldova,Purcari,['Viorica'],2022,40,Dry,False
+White,Moldova,Gitana Autograf,['Fetească regală'],2020,35,Dry,False
+White,Moldova,Gitana,['Chardonnay'],2023,30,Dry,False
+White,Moldova,Castel Mimi,['Bulboacă de Viorica'],2022,55,Dry,False
+White,Moldova,Trainic,['Chardonnay'],2021,30,Dry,False
+White,Franta,Crémant du Jura,['Chardonnay'],,50,Extra-Dry,True
+White,Franta,Vignobles Paul Mas,['Chardonnay'],2022,39,Dry,False
+White,Franta,Maison Castel,['Sauvignon Blanc'],2021,35,Dry,False
+White,Franta,Crémant de Loire Henri de Belrives,[],,55,Brut,True
+White,New Zeeland,The New Land,['Sauvignon Blanc'],2021,20,Dry,False
+White,Argentina,Salentein Portillo,['Sauvignon Blanc'],2022,30,Dry,False
+White,Spain,Ramon Bilbao,['Verdejo Sobre Lias'],2020,35,Dry,False
+Rose,Italy,Frescobaldi Remole Toscana,[],,30,Dry,False
+Rose,Italy,Scaia Rosato,[],2022,55,Dry,False
+Rose,Italy,Masi Rosa dei Masi Rosato Trevenezie,[],2020,43,Dry,False
+Rose,Italy,Memoro Italia Piccini,[],2022,60,Dry,False
+Rose,Romania,Avincis Cuvee Alexis,"['Cabernet Sauvignon', 'Merlot']",2022,35,Dry,False
+Rose,France,L'escarelle Rumeurs,[],2021,60,Dry,False
+Rose,France,Domaine de la Gypiere Les Armoires,['Cotes de Provence'],2020,30,Dry,False
+Rose,France,Vignobles de Ramatuelle Coeur de la Presqu'ile,['Cotes de Provence'],,45,Dry,False
+Rose,France,Saint Louis de Provence,[],2020,40,Dry,False
+Rose,France,Louis Raynald Coteaux Varois en Provence,[],2022,35,Dry,False
+Rose,France,Exquise Prestige,[],2022,25,Dry,False
+Rose,France,Les Vignerons de Tutiac Lion and the Lilly,['Merlot'],2022,36,Dry,False
+Rose,France,Gerard Bertrand Cote's des Roses,[],,55,Dry,False
+Rose,Argentina,Salentein Callia Alta,['Shiraz'],,30,Dry,False
+Rose,Moldova,Gitana Surori,"['Saperavi', 'Rara neagra']",2022,35,Dry,False
+Rose,Moldova,Gitana Portret,['Cabernet Sauvignon'],2022,30,Dry,False
+Rose,Moldova,Purcari Vinohora,"['Pinot Grigio', 'Fetească neagră']",2023,42,Dry,False
+Rose,Moldova,Cricova,['Rara Neagra'],,35,Dry,False
+Rose,New Zeeland,The New Land,['Sauvignon Blush'],2021,20,Dry,False
+Red,Italy,Banfi Chianti,['Sangiovese'],,45,Dry,False
+Red,Italy,Montepulciano Toscana,[],2017,35,Dry,False
+Red,Italy,Crifo Puglia,['Nero di Troia'],2021,20,Semi-Dry,False
+Red,Italy,Cecchi di Toscana,['Sangiovese'],2022,30,Dry,False
+Red,Romania,Oprișor,['Drăgaica Roșie'],2018,50,Dry,False
