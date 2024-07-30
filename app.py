@@ -6,7 +6,7 @@ from widgets.authentication.login_widget import authenticator, config
 from widgets.authentication.reset_password import reset_password
 from widgets.authentication.user_registration import user_registration
 from widgets.initialize import initialize_session_status
-from widgets.data.data import insert_wine, load_data
+from widgets.data.data import insert_wine, process_data
 from widgets.data.filtering import filter_dataframe
 
 
@@ -33,11 +33,52 @@ if authentication_status:
     st.write(f"Welcome *{name}*")
 
     ##################### CONTENT HERE #########################
-    data = load_data()
+    # data = load_data()
+
+    ### TEST MONGODB CONNECTION ###
+
+    import pymongo
+    import pandas as pd
+
+    # Initialize connection.
+    # Uses st.cache_resource to only run once.
+    @st.cache_resource
+    def init_connection():
+        return pymongo.MongoClient(st.secrets["mongodb"]["host"])
+
+    client = init_connection()
+
+    # Pull data from the collection.
+    # You can use st.cache_data to only rerun when the query changes or after 10 min.
+    def get_data():
+        db = client[st.secrets["mongodb"]["database"]]
+        items = db[st.secrets["mongodb"]["collection"]].find()
+        items = list(items)  # make hashable for st.cache_data
+        return items
+
+    def read_mongo_data(no_id=True):
+        """Read from Mongo and Store into DataFrame"""
+
+        items = get_data()
+
+        # Expand the cursor and construct the DataFrame
+        df = pd.DataFrame(items)
+
+        # Delete the _id
+        if no_id:
+            del df["_id"]
+
+        return df
+
+    data = read_mongo_data()
+    data = process_data(data)
+    print(data.tail(5))
+
+    ###############################
 
     if "Wine inserted" not in st.session_state:
         if st.button("Insert Wine"):
-            insert_wine(data)
+            insert_wine(data, client)
 
     if st.checkbox("Show wine data"):
         if st.toggle("Filter wine data"):
