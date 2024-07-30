@@ -72,7 +72,6 @@ if authentication_status:
 
     data = read_mongo_data()
     data = process_data(data)
-    print(data.tail(5))
 
     ###############################
 
