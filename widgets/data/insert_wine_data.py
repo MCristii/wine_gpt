@@ -85,7 +85,7 @@ def insert_wine(data: pd.DataFrame, client: MongoClient) -> None:
                 grape_variety.remove("Other")
                 grape_variety.append(grape_var_addition)
 
-    year = st.number_input("Year", 1950, datetime.now().year)
+    year = st.number_input("Year", 1950, datetime.now().year, value=None)
     price = st.number_input("Price", 15, 1000)
     wine_type = st.selectbox(
         "Type", ["Brut", "Extra-Dry", "Dry", "Semi-Dry", "Semi-Sweet", "Sweet"]
