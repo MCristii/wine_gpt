@@ -2,11 +2,10 @@ from datetime import datetime
 from dataclasses import dataclass
 from itertools import chain
 import pandas as pd
-from ast import literal_eval
 import streamlit as st
 from pymongo import MongoClient
 
-DATA_PATH = "wine_data.csv"
+from widgets.data.data_query import instantiate_collection
 
 
 @dataclass
@@ -21,37 +20,13 @@ class WineData:
     sparkling: bool
 
 
-def lowercase(x):
-    return str(x).lower()
-
-
-def process_data(data: pd.DataFrame) -> pd.DataFrame:
-    data["grape_variety"] = (
-        data["grape_variety"].astype(str).apply(lambda x: literal_eval(x))
-    )
-    data.rename(lowercase, axis="columns", inplace=True)
-    return data
-
-
-def load_data() -> pd.DataFrame:
-    data = pd.read_csv(DATA_PATH)
-    data = process_data(data)
-    return data
-
-
 def insert_new_row(new_wine: WineData, client: MongoClient) -> None:
     # convert dataclass to dict
     new_wine_dict = new_wine.__dict__
 
     # post the new wine to the DB
-    secrets = st.secrets["mongodb"]
-    collection = client[secrets["database"]][secrets["collection"]]
+    collection = instantiate_collection(client)
     collection.insert_one(new_wine_dict)
-
-    # add the new row to the dataframe
-    # data.loc[len(data)] = new_wine_dict
-    # save the csv
-    # data.to_csv("wine_data.csv", index=False)
 
 
 @st.experimental_dialog("Insert your wine")
@@ -69,6 +44,13 @@ def insert_wine(data: pd.DataFrame, client: MongoClient) -> None:
         with country_col2:
             country = st.text_input("Add new country")
     wine_name = st.text_input("Wine Name")
+    existent_wine = data[data["wine_name"] == wine_name]
+    if wine_name in existent_wine["wine_name"].values:
+        st.write("This wine already exists!")
+        st.write(existent_wine)
+    else:
+        if wine_name != "":
+            st.write(data[data["wine_name"].str.contains(wine_name)]["wine_name"])
 
     grape_var_col1, grape_var_col2 = st.columns(2)
     with grape_var_col1:
@@ -83,14 +65,15 @@ def insert_wine(data: pd.DataFrame, client: MongoClient) -> None:
             )
             if "Other" in grape_variety:
                 grape_variety.remove("Other")
-                grape_variety.append(grape_var_addition)
+
+                for grape_var in grape_var_addition.split(","):
+                    grape_variety.append(grape_var.strip())
 
     year = st.number_input("Year", 1950, datetime.now().year, value=None)
     price = st.number_input("Price", 15, 1000)
     wine_type = st.selectbox(
-        "Type", ["Brut", "Extra-Dry", "Dry", "Semi-Dry", "Semi-Sweet", "Sweet"]
+        "Type", ["Brut", "Extra-Dry", "Dry", "Semi-Dry", "Semi-Sweet", "Sweet"], index=2
     )
-    st.write(wine_type)
     sparkling = st.toggle("Sparkling")
 
     # create a WineData dataclass object

@@ -7,9 +7,10 @@ from widgets.authentication.login_widget import authenticator, config
 from widgets.authentication.reset_password import reset_password
 from widgets.authentication.user_registration import user_registration
 from widgets.initialize import initialize_session_status
-from widgets.data.insert_wine_data import insert_wine, process_data
+from widgets.data.insert_wine_data import insert_wine
 from widgets.data.filtering import filter_dataframe
-from widgets.data.data_query import init_connection, read_mongo_data
+from widgets.data.data_query import init_connection, read_mongo_data, process_data
+from widgets.data.changes import change_wine_data
 
 
 initialize_session_status()
@@ -36,7 +37,7 @@ if authentication_status:
 
     ##################### CONTENT HERE #########################
     client = init_connection()
-    data = read_mongo_data(client)
+    data = read_mongo_data()
     data = process_data(data)
 
     if "Wine inserted" not in st.session_state:
@@ -68,6 +69,11 @@ if authentication_status:
         ),
     }
     st.dataframe(data, column_config=column_config)
+
+    if "Wine changed" not in st.session_state:
+        if st.button("Change Wine"):
+            change_wine_data()
+
     ############################################################
 
 elif authentication_status is False:
