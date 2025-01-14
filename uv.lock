@@ -79,18 +79,6 @@ wheels = [
 ]
 
 [[package]]
-name = "captcha"
-version = "0.6.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "pillow" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/48/4c/547742298d99408a7172aa5b1328b6bb9d85234b4082e0fd379f9b893615/captcha-0.6.0.tar.gz", hash = "sha256:a5ead7679cd8477bc636524d54f50e092a4b6f3db4e52bb98a689593638d1772", size = 187610 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/c0/f2/9af6abd7b07e4709a7d698fee6fa7ce7fb9814886b18de61580311b0fe96/captcha-0.6.0-py3-none-any.whl", hash = "sha256:148b2475be00a067b6173b7796cdc2332dbcb6fd4bfced1055bc8f69846bc924", size = 102241 },
-]
-
-[[package]]
 name = "certifi"
 version = "2024.12.14"
 source = { registry = "https://pypi.org/simple" }
@@ -951,19 +939,18 @@ wheels = [
 
 [[package]]
 name = "streamlit-authenticator"
-version = "0.4.1"
+version = "0.3.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "bcrypt" },
-    { name = "captcha" },
     { name = "extra-streamlit-components" },
     { name = "pyjwt" },
     { name = "pyyaml" },
     { name = "streamlit" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f8/70/04c24fb2d9b372edfa2261cbec3828633bc997c4bf29310ff53cf092a647/streamlit_authenticator-0.4.1.tar.gz", hash = "sha256:d4afeec5c972d794052a5552aa570e7eb620f0cc183484a5b052304907268381", size = 31401 }
+sdist = { url = "https://files.pythonhosted.org/packages/47/8c/73720cbba26a17bbda9b5118de19b460613322ed84fa01ce050be6caa35b/streamlit-authenticator-0.3.2.tar.gz", hash = "sha256:f17a77d0394a45d6554a72d890cc270d9be5328eeb12958898bf0183e7321ed6", size = 18754 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/93/28/c19eae3f2b29dd4658e16d3fd3e0164af13c501493e0bc260effcfe04407/streamlit_authenticator-0.4.1-py3-none-any.whl", hash = "sha256:776136e6a6ecde1ecc9dda054a7492290199b81e19268abff307a7d508685942", size = 34747 },
+    { url = "https://files.pythonhosted.org/packages/42/29/c75f245f4343c526bd97f2bc65c05faccc90e4c95032645eff1d988fe872/streamlit_authenticator-0.3.2-py3-none-any.whl", hash = "sha256:0620768d01aa6c7bff4200f062effff333a8e0cfde9b5300a67ba878c51b0adc", size = 22336 },
 ]
 
 [[package]]
@@ -1065,5 +1052,5 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "pymongo", specifier = ">=4.10.1" },
     { name = "streamlit", specifier = ">=1.41.1" },
-    { name = "streamlit-authenticator", specifier = ">=0.4.1" },
+    { name = "streamlit-authenticator", specifier = "==0.3.2" },
 ]

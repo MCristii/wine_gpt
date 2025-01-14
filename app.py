@@ -67,77 +67,76 @@ if authentication_status:
         if st.button("Reset password"):
             reset_password()
 
-st.write(f"Welcome *{name}*")
+    st.write(f"Welcome *{name}*")
 
+    # else:
+    #     # User is logged in
+    #     try:
+    #         with st.spinner("Loading..."):
+    #             jwt_response = descope_client.validate_and_refresh_session(
+    #                 st.session_state.token, st.session_state.refresh_token
+    #             )
+    #             # Persist refreshed token
+    #             st.session_state["token"] = jwt_response["sessionToken"].get("jwt")
 
-# else:
-#     # User is logged in
-#     try:
-#         with st.spinner("Loading..."):
-#             jwt_response = descope_client.validate_and_refresh_session(
-#                 st.session_state.token, st.session_state.refresh_token
-#             )
-#             # Persist refreshed token
-#             st.session_state["token"] = jwt_response["sessionToken"].get("jwt")
+    #         user_info_col, logout_col = st.columns([6, 1])
 
-#         user_info_col, logout_col = st.columns([6, 1])
+    #         if logout_col.button("Logout"):
+    #             # Log out user
+    #             del st.session_state.token
+    #             st.rerun()
 
-#         if logout_col.button("Logout"):
-#             # Log out user
-#             del st.session_state.token
-#             st.rerun()
+    #         if "user" in st.session_state:
+    #             user = st.session_state.user
+    #             user_info_col.write("Name: " + user["name"])
+    #             user_info_col.write("Email: " + user["email"])
 
-#         if "user" in st.session_state:
-#             user = st.session_state.user
-#             user_info_col.write("Name: " + user["name"])
-#             user_info_col.write("Email: " + user["email"])
+    #         if "Tenant Admin" in user["roleNames"]:
+    #             # Show admin-specific content
+    #             ADMIN_FLAG = 1
 
-#         if "Tenant Admin" in user["roleNames"]:
-#             # Show admin-specific content
-#             ADMIN_FLAG = 1
+    ##################### CONTENT HERE #########################
+    client = init_connection()
+    data = read_mongo_data()
+    data = process_data(data)
 
-##################### CONTENT HERE #########################
-client = init_connection()
-data = read_mongo_data()
-data = process_data(data)
+    if ADMIN_FLAG:
+        if "Wine inserted" not in st.session_state:
+            if st.button("Insert Wine"):
+                insert_wine(data, client)
 
-if ADMIN_FLAG:
-    if "Wine inserted" not in st.session_state:
-        if st.button("Insert Wine"):
-            insert_wine(data, client)
+    subheader, filter_wine_toggle = st.columns([3, 1])
 
-subheader, filter_wine_toggle = st.columns([3, 1])
+    if filter_wine_toggle.toggle("Filter wine data"):
+        data = filter_dataframe(data)
 
-if filter_wine_toggle.toggle("Filter wine data"):
-    data = filter_dataframe(data)
+    subheader.subheader("Wine data")
+    column_config = {
+        "price": st.column_config.NumberColumn(
+            "price",
+            help="The price of the wine in RON",
+            min_value=0,
+            max_value=1000,
+            step=1,
+            format="RON %d",
+        ),
+        "year": st.column_config.NumberColumn(
+            "year",
+            help="The year of the wine",
+            min_value=1950,
+            max_value=datetime.now().year,
+            step=1,
+            format="%d",
+        ),
+    }
+    st.dataframe(data, column_config=column_config)
 
-subheader.subheader("Wine data")
-column_config = {
-    "price": st.column_config.NumberColumn(
-        "price",
-        help="The price of the wine in RON",
-        min_value=0,
-        max_value=1000,
-        step=1,
-        format="RON %d",
-    ),
-    "year": st.column_config.NumberColumn(
-        "year",
-        help="The year of the wine",
-        min_value=1950,
-        max_value=datetime.now().year,
-        step=1,
-        format="%d",
-    ),
-}
-st.dataframe(data, column_config=column_config)
+    if ADMIN_FLAG:
+        if "Wine changed" not in st.session_state:
+            if st.button("Change Wine"):
+                change_wine_data()
 
-if ADMIN_FLAG:
-    if "Wine changed" not in st.session_state:
-        if st.button("Change Wine"):
-            change_wine_data()
-
-############################################################
+    ############################################################
 
 # except Exception:
 #     # Log out user
