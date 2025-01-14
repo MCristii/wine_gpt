@@ -11,3 +11,6 @@ dependencies = [
     "streamlit>=1.41.1",
     "streamlit-authenticator>=0.4.1",
 ]
+
+[tool.ruff]
+line-length = 99
