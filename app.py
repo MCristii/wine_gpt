@@ -44,7 +44,7 @@ if "token" not in st.session_state:
     with st.container(border=True):
         if st.button("Sign In with Google", use_container_width=True):
             oauth_response = descope_client.oauth.start(
-                provider="google", return_url="https://winegpt.streamlit.app/"
+                provider="github", return_url="https://winegpt.streamlit.app/"
             )
             url = oauth_response["url"]
             # Redirect to Google
