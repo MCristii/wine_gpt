@@ -1,0 +1,13 @@
+[project]
+name = "winegpt"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "descope>=1.7.2",
+    "pandas>=2.2.3",
+    "pymongo>=4.10.1",
+    "streamlit>=1.41.1",
+    "streamlit-authenticator>=0.4.1",
+]

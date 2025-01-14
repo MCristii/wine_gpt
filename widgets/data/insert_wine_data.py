@@ -29,12 +29,12 @@ def insert_new_row(new_wine: WineData, client: MongoClient) -> None:
     collection.insert_one(new_wine_dict)
 
 
-@st.experimental_dialog("Insert your wine")
+@st.dialog("Insert your wine")
 def insert_wine(data: pd.DataFrame, client: MongoClient) -> None:
     st.write("What wine did you drank?")
 
     # fields to add new wine
-    color = st.radio("Color", ["White", "Rose", "Red"])
+    color = st.radio("Color", ["White", "Rose", "Red", "Fortified"])
     country_col1, country_col2 = st.columns(2)
     with country_col1:
         country = st.selectbox(

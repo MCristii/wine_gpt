@@ -7,14 +7,14 @@ credentials:
     user1:
       email: user1.name@gmail.com
       failed_login_attempts: 0
-      logged_in: false
+      logged_in: true
       name: User1 Name
-      password: abc
+      password: $2b$12$YmZSg7u3IAKvZpVFRlCf2.UKyzY4Gx7aR/VMkq0V4FGH5iaVH088q
     user2:
       email: user2.name@gmail.com
       failed_login_attempts: 0
       logged_in: true
       name: User2 Name
-      password: def
+      password: $2b$12$EhjiwvH4LFpDzpI1LJkQOOKIQV6l3Z2P1ZR2oU4xbFq.95bwMJ5N.
 pre-authorized:
   emails: null

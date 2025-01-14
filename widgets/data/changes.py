@@ -12,7 +12,6 @@ from widgets.data.filtering import filter_dataframe
 def rewrite_wine_data(old_dict, dict_to_update):
     client = init_connection()
     collection = instantiate_collection(client)
-    st.write(dict_to_update)
 
     # find the wine to update
     id_filter = {"_id": ObjectId(dict_to_update["_id"])}
@@ -22,7 +21,6 @@ def rewrite_wine_data(old_dict, dict_to_update):
     ):
         if old_value != new_value and new_key != "_id":
             st.session_state["newvalues"]["$set"] = {new_key: new_value}
-            print(st.session_state["newvalues"])
 
     # save the updates
     collection.update_one(id_filter, st.session_state["newvalues"])
